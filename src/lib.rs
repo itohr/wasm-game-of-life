@@ -115,6 +115,28 @@ impl Universe {
 
         self.cells = next;
     }
+
+    pub fn toggle_cell(&mut self, row: u32, column: u32) {
+        let idx = self.get_index(row, column);
+        self.cells.set(idx, !self.cells[idx]);
+    }
+
+    pub fn clear_cells(&mut self) {
+        self.cells.clear();
+    }
+
+    pub fn randomize_cells(&mut self) {
+        for i in 0..self.cells.len() {
+            self.cells.set(
+                i,
+                if js_sys::Math::random() < 0.5 {
+                    true
+                } else {
+                    false
+                },
+            );
+        }
+    }
 }
 
 impl fmt::Display for Universe {
