@@ -21,12 +21,30 @@
         margin-left: 10px;
         margin-right: 10px;
       }
+
+      #fps {
+        white-space: pre;
+        font-family: monospace;
+      }
+
+      .control-panel {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
     </style>
   </head>
   <body>
-    <button id="play-pause"></button>
-    <button id="clear">Clear</button>
-    <button id="randomize">Randomize</button>
+    <div class="control-panel">
+      <div class="buttons">
+        <button id="play-pause"></button>
+        <button id="clear">Clear</button>
+        <button id="randomize">Randomize</button>
+      </div>
+      <div id="fps"></div>
+    </div>
     <canvas id="game-of-life-canvas"></canvas>
     <script src="./bootstrap.js"></script>
   </body>
